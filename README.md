@@ -1,11 +1,27 @@
-# 1. Instale os pacotes Node (caso ainda não tenha feito)
-npm install
+# 🚀 Mateus Ferreira - SAEP Project
 
-# 2. Inicie o servidor do Vite
-npm run dev
+Este é um projeto full-stack desenvolvido para a avaliação do SAEP. A aplicação consiste em um ecossistema completo contendo um front-end moderno em TypeScript e um back-end robusto em Python.
 
+---
 
-//Inicializando Back-end
+## 🛠️ Tecnologias Utilizadas
+
+### Front-end
+* **Vite** — Build tool ultra-rápida
+* **TypeScript** — Tipagem estática para JavaScript
+
+### Back-end
+* **Python** — Linguagem de programação principal
+* **Django** — Framework web utilizado no desenvolvimento da API
+* **SQLite  Armazenamento de dados
+
+---
+
+## 💻 Como Executar o Projeto
+
+Certifique-se de ter o **Node.js** e o **Python** instalados em sua máquina antes de iniciar.
+
+### 🔌 1. Inicializando o Back-end (Django)
 
 1. Abra o terminal e navegue até a pasta do back-end:
    ```powershell
@@ -36,3 +52,22 @@ npm run dev
    ```powershell
    python manage.py runserver
    ```
+   > O servidor backend estará rodando em: `http://127.0.0`
+
+---
+
+### 🎨 2. Inicializando o Front-end (Vite + TS)
+
+Abra uma **nova janela de terminal** na raiz do projeto e siga os passos abaixo:
+
+1. Instale os pacotes e dependências do Node:
+   ```powershell
+   npm install
+   ```
+
+2. Inicie o servidor de desenvolvimento do Vite:
+   ```powershell
+   npm run dev
+   ```
+
+
