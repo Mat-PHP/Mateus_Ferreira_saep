@@ -38,7 +38,6 @@ Certifique-se de ter o **Node.js** e o **Python** instalados em sua máquina ant
    ```powershell
    python manage.py runserver
    ```
-   > O servidor backend estará rodando em: `http://127.0.0`
 
 ---
 
