@@ -7,18 +7,32 @@ npm run dev
 
 //Inicializando Back-end
 
-# 1. Garanta que está na pasta backend
-cd backend
+1. Abra o terminal e navegue até a pasta do back-end:
+   ```powershell
+   cd backend
+   ```
 
-# 2. Crie o ambiente virtual
-python -m venv venv
+2. Crie o ambiente virtual (Venv):
+   ```powershell
+   python -m venv venv
+   ```
 
-# 3. Ative o ambiente virtual (Como você está no PowerShell do Windows):
-.\venv\Scripts\Activate.ps1
+3. Ative o ambiente virtual (No Windows/PowerShell):
+   ```powershell
+   .\venv\Scripts\Activate.ps1
+   ```
 
-# 4. Instale as dependências
-pip install -r requirements.txt
+4. Instale todas as dependências necessárias:
+   ```powershell
+   pip install -r requirements.txt
+   ```
 
-# 5. Rode as migrações e inicie o servidor
-python manage.py migrate
-python manage.py runserver
+5. Execute as migrações do banco de dados:
+   ```powershell
+   python manage.py migrate
+   ```
+
+6. Inicie o servidor de desenvolvimento:
+   ```powershell
+   python manage.py runserver
+   ```
