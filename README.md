@@ -2,20 +2,6 @@
 
 Este é um projeto full-stack desenvolvido para a avaliação do SAEP. A aplicação consiste em um ecossistema completo contendo um front-end moderno em TypeScript e um back-end robusto em Python.
 
----
-
-## 🛠️ Tecnologias Utilizadas
-
-### Front-end
-* **Vite** — Build tool ultra-rápida
-* **TypeScript** — Tipagem estática para JavaScript
-
-### Back-end
-* **Python** — Linguagem de programação principal
-* **Django** — Framework web utilizado no desenvolvimento da API
-* **SQLite  Armazenamento de dados
-
----
 
 ## 💻 Como Executar o Projeto
 
@@ -30,7 +16,7 @@ Certifique-se de ter o **Node.js** e o **Python** instalados em sua máquina ant
 
 2. Crie o ambiente virtual (Venv):
    ```powershell
-   python -m venv venv
+   python -m venv env
    ```
 
 3. Ative o ambiente virtual (No Windows/PowerShell):
