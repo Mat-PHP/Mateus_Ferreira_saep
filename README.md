@@ -1,24 +1,58 @@
-# 1. Instale os pacotes Node (caso ainda não tenha feito)
-npm install
+# 🚀 Mateus Ferreira - SAEP Project
 
-# 2. Inicie o servidor do Vite
-npm run dev
+Este é um projeto full-stack desenvolvido para a avaliação do SAEP. A aplicação consiste em um ecossistema completo contendo um front-end moderno em TypeScript e um back-end robusto em Python.
 
 
-//Inicializando Back-end
+## 💻 Como Executar o Projeto
 
-# 1. Garanta que está na pasta backend
-cd backend
+Certifique-se de ter o **Node.js** e o **Python** instalados em sua máquina antes de iniciar.
 
-# 2. Crie o ambiente virtual
-python -m venv venv
+### 🔌 1. Inicializando o Back-end (Django)
 
-# 3. Ative o ambiente virtual (Como você está no PowerShell do Windows):
-.\venv\Scripts\Activate.ps1
+1. Abra o terminal e navegue até a pasta do back-end:
+   ```powershell
+   cd backend
+   ```
 
-# 4. Instale as dependências
-pip install -r requirements.txt
+2. Crie o ambiente virtual (Venv):
+   ```powershell
+   python -m venv env
+   ```
 
-# 5. Rode as migrações e inicie o servidor
-python manage.py migrate
-python manage.py runserver
+3. Ative o ambiente virtual (No Windows/PowerShell):
+   ```powershell
+   .\venv\Scripts\Activate.ps1
+   ```
+
+4. Instale todas as dependências necessárias:
+   ```powershell
+   pip install -r requirements.txt
+   ```
+
+5. Execute as migrações do banco de dados:
+   ```powershell
+   python manage.py migrate
+   ```
+
+6. Inicie o servidor de desenvolvimento:
+   ```powershell
+   python manage.py runserver
+   ```
+
+---
+
+### 🎨 2. Inicializando o Front-end (Vite + TS)
+
+Abra uma **nova janela de terminal** na raiz do projeto e siga os passos abaixo:
+
+1. Instale os pacotes e dependências do Node:
+   ```powershell
+   npm install
+   ```
+
+2. Inicie o servidor de desenvolvimento do Vite:
+   ```powershell
+   npm run dev
+   ```
+
+
