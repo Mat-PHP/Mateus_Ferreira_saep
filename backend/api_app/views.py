@@ -3,11 +3,13 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from django.conf import settings
 from django.core.mail import send_mail
+from django.core.exceptions import ValidationError
 from django.utils.crypto import get_random_string
 from rest_framework import generics, permissions, status
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.exceptions import ValidationError as DRFValidationError
 
 from .models import Product, StockMovement
 from .serializers import ProductSerializer, StockMovementSerializer
@@ -108,3 +110,10 @@ class StockMovementListCreateView(generics.ListCreateAPIView):
     queryset = StockMovement.objects.select_related("product").all().order_by("-timestamp")
     serializer_class = StockMovementSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+    # 🛑 FUNÇÃO PARA CAPTURAR A EXCEÇÃO DE 100 MOVIMENTAÇÕES E ENVIAR O ALERTA AO FRONTEND
+    def perform_create(self, serializer):
+        try:
+            serializer.save()
+        except ValidationError as e:
+            raise DRFValidationError({"detail": e.message})

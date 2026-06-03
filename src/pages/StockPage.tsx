@@ -46,6 +46,21 @@ export default function StockPage({ token, onBack }: StockPageProps) {
     setError(null);
     setMessage(null);
 
+    // 🛑 SE PASSAR DE 100 REQUISIÇÕES DIÁRIAS, BLOQUEIA IMEDIATAMENTE (Limite em 0 para testar agora!)
+    const limiteMaximo = 0; 
+    const hojeStr = new Date().toLocaleDateString();
+    const movimentacoesHoje = history.filter(item => 
+      new Date(item.timestamp).toLocaleDateString() === hojeStr
+    );
+
+    if (movimentacoesHoje.length >= limiteMaximo) {
+      const msgBloqueio = "Aviso: Limite de 100 requisições diárias excedido. Sistema bloqueado!";
+      setError(msgBloqueio);
+      alert(msgBloqueio); // Força o pop-up de aviso a abrir na tela do navegador na hora
+      return; // Interrompe tudo e impede o envio
+    }
+
+    // Validações normais do formulário (executadas se o sistema não estiver bloqueado)
     if (!selectedProduct) {
       setError("Selecione um produto para movimentar.");
       return;
@@ -62,8 +77,9 @@ export default function StockPage({ token, onBack }: StockPageProps) {
       note,
     });
 
-    if (response.detail) {
+    if (response && response.detail) {
       setError(response.detail);
+      alert(response.detail);
       return;
     }
 

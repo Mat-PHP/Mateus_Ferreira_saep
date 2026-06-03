@@ -97,10 +97,23 @@ export default function ProductsPage({ token, onBack }: ProductsPageProps) {
     });
   };
 
-  const handleDelete = async (id: number) => {
+  // 🛑 VERSÃO CORRIGIDA: EXCLUI O PRODUTO E ZERA O HISTÓRICO SEM ERRO DE TYPESCRIPT
+  const handleDelete = async (id: number, name: string) => {
+    const confirmar = window.confirm(
+      `Tem certeza que deseja excluir o produto "${name}"? Isso vai ZERAR e APAGAR todas as movimentações vinculadas a ele permanentemente!`
+    );
+
+    if (!confirmar) return;
+
+    setError(null);
+    setMessage(null);
+    
+    // O Django trata o ON DELETE CASCADE e zera as movimentações por baixo dos panos
     await deleteProduct(token, id);
+    
     await loadProducts();
-    setMessage("Produto excluído com sucesso.");
+    setMessage("Produto excluído e histórico zerado com sucesso.");
+    alert("Produto e histórico de movimentações apagados com sucesso!");
   };
 
   return (
@@ -195,7 +208,7 @@ export default function ProductsPage({ token, onBack }: ProductsPageProps) {
                   <button className="secondary" onClick={() => handleEdit(product)}>
                     Editar
                   </button>
-                  <button className="danger" onClick={() => handleDelete(product.id)}>
+                  <button className="danger" onClick={() => handleDelete(product.id, product.name)}>
                     Excluir
                   </button>
                 </td>
